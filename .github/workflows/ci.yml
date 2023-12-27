@@ -1,0 +1,17 @@
+name: ci
+
+on:
+  push:
+    branches: 
+      - master
+jobs:
+  ci:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: npm install
+      - name: Run lint
+        run: npm run lint
+      - name: Build
+        run: npm run build
